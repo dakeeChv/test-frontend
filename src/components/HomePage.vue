@@ -1,21 +1,44 @@
 <template>
-  <v-app>
+  <v-div class="mb-12">
     <v-app-bar
       app
       class="deep-purple accent-4"
       dark
-      dense
       clipped-left
+      flat
+      fixed
     >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title
         style="width: 300px"
         class="ml-0 pl-3"
       >
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <span class="hidden-sm-and-down">Google Contacts</span>
+        <div class="d-flex align-center">
+          <v-img
+            alt="Vuetify Logo"
+            class="shrink mr-2 ml-4"
+            contain
+            src="../assets/LoGoTeamS.png"
+            transition="scale-transition"
+            width="120"
+          />
+          <!-- <span class="hidden-sm-and-down">Google Contacts</span> -->
+        </div>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-
+      <v-btn
+        text
+        to="/signup"
+      >
+        <v-icon>group_add</v-icon>
+        <span class="ml-2 mr-2">Sign Up</span>
+      </v-btn><v-btn
+        text
+        to="/signin"
+      >
+        <v-icon>how_to_reg</v-icon>
+        <span class="ml-2 mr-2">Sign In</span>
+      </v-btn>
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
@@ -29,8 +52,7 @@
       v-model="drawer"
       app
       clipped
-      class="deep-purple accent-4"
-      dark
+      fixed
     >
       <v-list dense>
         <v-list-item
@@ -48,7 +70,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </v-app>
+  </v-div>
 </template>
 
 <script>
@@ -108,8 +130,8 @@ export default {
       }
     ],
     items: [
-      { title: 'Sign In', icon: 'how_to_reg' },
-      { title: 'Sign Up', icon: 'account_box' }
+      { title: 'Dashboard', icon: 'dashboard' },
+      { title: 'Contact CEIT-Software', icon: 'send' }
     ]
   })
 }
